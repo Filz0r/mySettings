@@ -3,7 +3,7 @@
 # this is an install script that configures my Arch system for me, at least I hope
 START_PWD=$(pwd)
 echo "Creating required folders"
-if [[ ! -d ~/.mySettings ]]; then mkdir ~/.mySettings; fi
+if [[ ! -d ~/.mySettings ]]; then mkdir ~/.mySettings ~/.mySettings/scripts ~/.mySettings/configs; fi
 if [[ ! -d ~/Documents ]]; then mkdir ~/Documents; fi
 if [[ ! -d ~/Pictures ]]; then mkdir ~/Pictures; fi
 if [[ ! -d ~/Downloads ]]; then mkdir ~/Downloads; fi
