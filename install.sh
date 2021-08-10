@@ -2,6 +2,7 @@
 
 # this is an install script that configures my Arch system for me, at least I hope
 START_PWD=$(pwd)
+SECONDS=0
 echo "Creating required folders"
 if [[ ! -d ~/.mySettings ]]; then mkdir ~/.mySettings ~/.mySettings/scripts ~/.mySettings/configs; fi
 if [[ ! -d ~/Documents ]]; then mkdir ~/Documents; fi
@@ -18,7 +19,7 @@ sudo pacman -S emacs kitty nautilus discord firefox gparted \
     nmap wireguard-tools vim chromium evolution gnome-keyring capitaine-cursors \
     lxappearance i3 i3lock i3-gaps neofetch syncthing stress shellcheck s-tui \
     ttf-font-awesome ttf-nerd-fonts-symbols intel-undervolt iotop tree \
-    w3m vlc wireguard-tools lightdm ripgrep rofi lightdm-gtk-greeter
+    w3m vlc wireguard-tools lightdm ripgrep rofi lightdm-gtk-greeter tlp
 # enables
 echo "enabling required services"
 sleep 5
@@ -51,6 +52,7 @@ cp -rp ./scripts/* ~/.mySettings/scripts/
 cp ./bashrc ~/.mySettings/bashrc
 cp ./aliases ~/.mySettings/aliases
 cp ./gtkrc ~/.mySettings/gtkrc
+# small cleanup and creation of directories
 rm ~/.bash_aliases ~/.bashrc ~/.gtkrc-2.0
 mkdir ~/.config/dunst ~/.config/i3 ~/.config/polybar ~/.config/picom ~/.config/kitty
 echo
@@ -63,3 +65,14 @@ ln -s ~/.mySettings/configs/i3/config ~/.config/i3/config
 ln -s ~/.mySettings/configs/polybar/config ~/.config/polybar/config
 ln -s ~/.mySettings/configs/picom/picom.conf ~/.config/picom/picom.conf
 # ln -s ~/.mySettings/configs/kitty/kitty.conf ~/.config/kitty/kitty.conf
+
+
+echo
+echo "ENABLING SYSTEM CONFIGURATIONS"
+sudo cp ./undervolt.conf /etc/intel-undervolt.conf
+sudo systemctl enable auto-cpufreq intel-undervolt tlp
+sudo intel-undervolt apply
+cp ~/.mySettings/configs/doom/* ~/.doom.d/*
+~/emacs.d/bin/doom sync
+
+echo "Done in $SECONDS seconds, please reboot!"
