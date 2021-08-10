@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# this is an install script that configures my Arch system for me, at least I hope
+
 set -euo pipefail
 
 echo "Creating required folders"
@@ -13,7 +16,7 @@ sudo pacman -S emacs kitty nautilus discord firefox gparted \
     nmap wireguard vim chromium evolution gnome-keyring capitaine-cursors \
     lxappearance i3 i3lock i3-gaps neofetch syncthing stress shellcheck s-tui \
     ttf-font-awesome ttf-nerd-fonts-symbols steam intel-undervolt iotop tree \
-    w3m vlc wireguard-tools
+    w3m vlc wireguard-tools lightdm
 
 echo "installing AUR helper and AUR packages"
 git clone https://aur.archlinux.org/yay.git
