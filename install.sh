@@ -6,6 +6,7 @@ set -euo pipefail
 
 echo "Creating required folders"
 mkdir ~/.mySettings
+mkdir ~/Documents ~/Downloads ~/Pictures
 mkdir ~/Documents/GitHub
 mkdir ~/Documents/code
 
