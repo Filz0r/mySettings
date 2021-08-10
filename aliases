@@ -1,0 +1,94 @@
+# -*- mode: sh;  -*-
+
+##########################
+## Shortcut Alias
+##
+## Remove Orphan pkgs
+alias orphan='sudo pacman -Rns $(pacman -Qtdq)'
+##
+## Well p + enter is shorter than pwd + enter, so yes I did it
+## this has to do with the way my shell looks
+alias p='pwd'
+##
+## Uses the function to tail
+alias follow='tail -f -- "$(latest-file-in-directory)"'
+##
+## Follows the most recent log in rclone log folder
+#alias rfollow='cd /home/filipe/.mySettings/logs/rclone; tail -f -- "$(latest-file-in-directory)"'
+##
+###########
+## Custom
+##
+## Get Public IP
+alias pub='curl ifconfig.me'
+## Backup all my configs to Google Drive with rclone
+#alias dotbak='rclone copy --filter-from /home/filipe/.mySettings/filter.txt /home/filipe/drive-settings/ Drive:Manjaro --copy-links --log-level INFO --log-file=/home/filipe/.mySettings/logs/rclone/log-config-$(date "+%Y.%m.%d-%H.%M.%S").log'
+##
+## Backup all my code projects to Drive with rclone
+#alias devbak='rclone copy /home/filipe/Documents/code Drive:Code --copy-links --log-level INFO --log-file=/home/filipe/.mySettings/logs/rclone/log-code-$(date "+%Y.%m.%d-%H.%M.%S").log'
+##
+## cd to the folder where all my configs are stored
+alias cds='cd /home/filipe/drive-settings'
+##
+## cd to the code folder
+alias cdc='cd /home/filipe/Documents/code'
+##
+## cd to the ansible folder
+alias cda='cd /home/filipe/Documents/server-stuff/Ansible'
+##
+## nano hosts file
+alias nh='nano /home/filipe/.mySettings/hosts'
+##
+## Checks if reboot is needed
+alias cr='cat /var/run/reboot-required'
+##
+## use node v14 lts
+alias nv14='nvm use --lts=fermium'
+##
+## use node v12 lts
+alias nv12='nvm use --lts=erbium'
+##
+##########################
+##
+alias ..='cd ..'
+##
+alias grep='grep --color=auto'
+##
+alias ls='ls --color=auto'
+##
+alias la='ls -A'
+##
+alias l='ls -CF'
+##
+alias ll='ls -alF'
+##
+alias nanominer='cd ~/.mySettings/nanominer/; ./nanominer config.ini'
+#alias gpu_nano='cd ~/.mySettings/nanominer/; ./nanominer config-gpu.ini'
+##
+alias pac='sudo pacman'
+##
+alias mac='pamac build'
+##
+alias ss='sudo systemctl'
+##
+alias wg='sudo wg'
+##
+alias wg-quick='sudo wg-quick'
+##
+alias garbage='systemctl reboot --boot-loader-entry=windows10.conf'
+##
+alias code='codium'
+##
+alias icat="kitty +kitten icat"
+##
+alias refresh='source .bashrc'
+##
+alias ls='ls --color=auto'
+##
+alias remacs='/home/filipe/.emacs.d/bin/doom sync'
+##
+alias pulsevolctrl='/home/filipe/.mySettings/scripts/pulsevolctrl.sh'
+##
+alias pulsedevices='/home/filipe/.mySettings/scripts/pulsedevices.sh'
+
+

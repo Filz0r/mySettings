@@ -37,3 +37,27 @@ yay -S apostrophe auto-cpufreq-git bitwarden-bin exodus github-desktop-bin i3exi
     js-beautify matcha-gtk-theme moka-icon-theme-git mongodb-compass nvm \
     picom-jonaburg-git polybar polybar-spotify-module spotify tela-icon-theme \
     timeshift vscodium
+#installs Doom Emacs
+echo
+echo "Installing Doom Emacs"
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
+# copies and symlinks dotfiles to .mySettings
+echo
+echo "Copying configs to .mySettings"
+cp -rp ./configs/* ~/.mySettings/configs/
+cp -rp ./scripts/* ~/.mySettings/scripts/
+cp ./bashrc ~/.mySettings/bashrc
+cp ./aliases ~/.mySettings/aliases
+cp ./gtkrc ~/.mySettings/gtkrc
+echo
+echo "Symlinking files to home directory"
+ln -s ~/.mySettings/bashrc ~/.bashrc
+ln -s ~/.mySettings/aliases ~/.bash_aliases
+ln -s ~/.mySettings/gtkrc ~/.gtkrc-2.0
+ln -s ~/.mySettings/configs/dunst/dunstrc ~/.config/dunst/dunstrc
+ln -s ~/.mySettings/configs/i3/config ~/.config/i3/config
+ln -s ~/.mySettings/configs/polybar/config ~/.config/polybar/config
+ln -s ~/.mySettings/configs/picom/picom.conf ~/.config/picom/picom.conf
+# ln -s ~/.mySettings/configs/kitty/kitty.conf ~/.config/kitty/kitty.conf
