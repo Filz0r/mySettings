@@ -51,6 +51,8 @@ cp -rp ./scripts/* ~/.mySettings/scripts/
 cp ./bashrc ~/.mySettings/bashrc
 cp ./aliases ~/.mySettings/aliases
 cp ./gtkrc ~/.mySettings/gtkrc
+rm ~/.bash_aliases ~/.bashrc ~/.gtkrc-2.0
+mkdir ~/.config/dunst ~/.config/i3 ~/.config/polybar ~/.config/picom ~/.config/kitty
 echo
 echo "Symlinking files to home directory"
 ln -s ~/.mySettings/bashrc ~/.bashrc
