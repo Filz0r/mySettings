@@ -6,10 +6,10 @@ config files and scripts and then I symlink from that folder to `~/` and `~/.con
 have built 2 scripts `backup.sh` and `install.sh` as the naming sugests one backups the config files
 from `~/.mySettings` to `~/Documents/Github/mySettings` and the other one installs all the packages 
 I need to run my i3 desktop, I'm still not shure if all the depedencies I need for a bare-metal install
-are in the install script, as I've only tested it in VM's, it is able to set up my desktop enviroment to
-the point where I only need to apply wallpapers. I haven't tested if the audio, networking and bluetooth
-are working on bare-metal as well. 
+are in the install script, as I've only tested it in VM's, it is able to set up my desktop enviroment to the point where I only need to apply wallpapers. I haven't tested if the audio, networking and bluetooth are working on bare-metal as well. 
+
 The install script also installs yay as an AUR helper, and sets up `auto-cpufreq, intel-undervolt and tlp` as in my pc is actually a laptop and it helps with increasing battery life, my a little, but it helps.
+
 Finally I just wanted to point out that this script was built to work after running `archinstall` when installing Arch linux.
 In my testing I ran the base install with the root user disabled and a non-encrypted ext4 partition, and when prompt for what desktop enviroment you want to install you just select the option that installs just the base XORG packages, after a reboot you can run the following commands to install my configs in your system:
 ```
