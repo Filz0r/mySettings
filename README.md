@@ -19,6 +19,8 @@ cd mySettings
 ```
 After the script runs you will need to reboot your system and you will be greeted by the lightdm
 greeter, after this you're done.
+
+
 Sources from some of the settings and config files:
 - https://www.youtube.com/watch?v=B1iRxoyT4EA (auto-cpufreq)
 - https://github.com/BrodieRobertson (some polybar configs and audio setup)
