@@ -10,6 +10,54 @@ primary         = #ffb52a
 secondary       = #e60053
 alert           = #bd2c40
 
+[bar/qtile]
+monitor = ${env:MONITOR}
+width = 100%
+height = 30
+;offset-x = 1%
+;offset-y = 1%
+radius = 0.0
+fixed-center = true
+bottom = false
+background = ${colors.background}
+foreground = ${colors.foreground}
+;format-underline = #3EC13F
+
+;line-size = 4
+;line-color = #aa[rrggbb]
+;wm-restack = qtile
+override-redirect = true
+enable-ipc = true
+border-size = 0
+
+
+
+font-0 = Fira Mono:pixelsize=10:antialias=true;1
+font-1 = Font Awesome 5 Free:size=10:antialias=true:style=Solid;1
+font-2 = Font Awesome 5 Brands:size=10:antialias=true:style=Solid;1
+font-3 = Symbols Nerd Font:size=10:antialias=true:style=Solid;1
+font-4 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;1
+
+modules-left =   ewmh previous playpause next spotify
+modules-center = date weather
+modules-right = memory temperature cpu nvidia updates volume battery 
+
+underline-size = 3
+underline-color = ${colors.blue}
+module-margin-left = 1
+module-margin-right = 0
+;padding-left = 1
+;padding-right = 1
+tray-position = ${env:DP-2:right}
+tray-padding = 2
+;tray-background = #0063ff
+cursor-click = default
+cursor-scroll = default
+
+;scroll-up = 
+;scroll-down = 
+
+
 [bar/topbar]
 monitor = ${env:MONITOR}
 width = 100%
@@ -42,6 +90,83 @@ cursor-scroll = default
 enable-ipc = true
 override-redirect = true
 wm-restack = i3
+
+
+
+#################################################################
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = false 
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = true
+
+;       v     
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+icon-5 = 6;
+icon-6 = 7;
+icon-7 = 8;
+icon-8 = 9;
+icon-default = ""
+
+
+format = <label-state> 
+label-monitor = %icon% 
+
+
+; visible = Active workspace on unfocused monitor
+label-visible = %icon%
+label-visible-foreground = ${colors.blue}
+label-visible-background = ${colors.primary}
+
+label-active =  %icon%
+label-active-foreground = ${colors.blue}
+label-active-background = ${colors.background}
+label-active-underline = ${colors.blue}
+label-active-padding = 1
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.blue}
+label-occupied-underline = ${colors.foreground} 
+label-occupied-background = ${colors.background} 
+label-occupied-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
+;label-urgent-underline = ${colors.alert}
+label-urgent-padding = 1
+
+
+label-empty = %icon%
+label-empty-foreground = ${colors.blue}
+label-empty-background = ${colors.background}
+;label-empty-underline = ${colors.blue}
+
+label-empty-padding = 1
+
+
+################################################################################
+
+
 
 ; Weather
 [module/weather]
@@ -157,7 +282,7 @@ ws-icon-4 = 5;
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
-ws-icon-8 = 9;;
+ws-icon-8 = 9;
 ;ws-icon-default = 
 
 [module/cpu]

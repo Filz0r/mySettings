@@ -10,10 +10,11 @@ PS1="\[\033[38;5;2m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]@\[$(tp
 source /usr/share/nvm/init-nvm.sh
 source /home/filipe/.bash_aliases
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.mySettings/bin:$PATH"
-HISTSIZE=10000
+source /usr/share/goto/goto.sh
+HISTSIZE=100000
 export EDITOR=emacs
 export TERMINAL=/bin/kitty
+export RUST_SRC_PATH=/home/filipe/code/rust
 export TERM=xterm-256color
 # File extractor
 ex ()
@@ -54,8 +55,6 @@ latest-file-in-directory () {
             done
 }
 
-# spotify fix?
-# https://github.com/dasJ/spotifywm
-alias LD_PRELOAD="/home/filipe/spotifywm/spotifywm.so /usr/bin/spotify"
+
 export QT_STYLE_OVERRIDE=adwaita-dark
 export QT_QPA_PLATFORMTHEME=gnome

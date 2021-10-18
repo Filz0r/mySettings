@@ -4,12 +4,16 @@
 START_PWD=$(pwd)
 SECONDS=0
 echo "Creating required folders"
-if [[ ! -d ~/.mySettings ]]; then mkdir ~/.mySettings ~/.mySettings/scripts ~/.mySettings/configs; fi
+if [[ ! -d ~/.config ]]; then mkdir ~/.config fi
 if [[ ! -d ~/Documents ]]; then mkdir ~/Documents; fi
 if [[ ! -d ~/Pictures ]]; then mkdir ~/Pictures; fi
 if [[ ! -d ~/Downloads ]]; then mkdir ~/Downloads; fi
-if [[ ! -d ~/Documents/GitHub ]]; then mkdir ~/Documents/GitHub; fi
-if [[ ! -d ~/Documents/code ]]; then mkdir ~/Documents/code; fi
+if [[ ! -d ~/github ]]; then mkdir ~/github; fi
+if [[ ! -d ~/code ]]; then mkdir ~/code; fi
+if [[ ! -d ~/scripts ]]; then mkdir ~/code; fi
+if [[ ! -d ~/.local ]]; then mkdir ~/.local fi
+mkdir ~/.local/bin
+
 
 echo "installing required software"
 sleep 5
@@ -17,9 +21,11 @@ sudo pacman -S --noconfirm emacs kitty nautilus discord firefox gparted \
     kdeconnect yad gimp nvidia-settings nitrogen transmission-remote-gtk \
     arandr xorg-xrandr bash-completion bluez bpytop cmatrix cockpit cockpit-pcp \
     nmap wireguard-tools vim chromium evolution gnome-keyring capitaine-cursors \
-    lxappearance i3 i3lock i3-gaps neofetch syncthing stress shellcheck s-tui \
+    lxappearance i3-gaps neofetch syncthing stress shellcheck s-tui \
     ttf-font-awesome ttf-nerd-fonts-symbols intel-undervolt iotop tree \
-    w3m vlc wireguard-tools lightdm ripgrep rofi lightdm-gtk-greeter tlp
+    w3m vlc wireguard-tools lightdm ripgrep rofi lightdm-gtk-greeter tlp \
+    dmenu qtile telegram-desktop cpupower  gnome-calculator smartontools\
+    gnome-disk-utility polkit-gnome filezilla xterm mpv pavucontrol
 # enables
 echo "enabling required services"
 sleep 5
@@ -34,10 +40,10 @@ sleep 5
 # installs AUR packages
 echo
 echo "Installing AUR packages"
-yay -S apostrophe auto-cpufreq-git bitwarden-bin exodus github-desktop-bin i3exit \
+yay -S  bitwarden-bin exodus github-desktop-bin i3exit cpupower-gui \
     js-beautify matcha-gtk-theme moka-icon-theme-git mongodb-compass nvm \
     picom-jonaburg-git polybar polybar-spotify-module spotify tela-icon-theme \
-    timeshift vscodium
+    timeshift vscodium zoom nbfc-linux heroic-games-launcher-bin proton
 #installs Doom Emacs
 echo
 echo "Installing Doom Emacs"
@@ -45,34 +51,45 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 
 # copies and symlinks dotfiles to .mySettings
+sleep 5
 echo
-echo "Copying configs to .mySettings"
-cp -rp ./configs/* ~/.mySettings/configs/
-cp -rp ./scripts/* ~/.mySettings/scripts/
-cp ./bashrc ~/.mySettings/bashrc
-cp ./aliases ~/.mySettings/aliases
-cp ./gtkrc ~/.mySettings/gtkrc
+echo "Applying initial structure"
+cp -rp ./configs/* ~/.config/
+cp -rp ./scripts/* ~/scripts/
 # small cleanup and creation of directories
 rm ~/.bash_aliases ~/.bashrc ~/.gtkrc-2.0
-mkdir ~/.config/dunst ~/.config/i3 ~/.config/polybar ~/.config/picom ~/.config/kitty
 echo
 echo "Symlinking files to home directory"
-ln -s ~/.mySettings/bashrc ~/.bashrc
-ln -s ~/.mySettings/aliases ~/.bash_aliases
-ln -s ~/.mySettings/gtkrc ~/.gtkrc-2.0
-ln -s ~/.mySettings/configs/dunst/dunstrc ~/.config/dunst/dunstrc
-ln -s ~/.mySettings/configs/i3/config ~/.config/i3/config
-ln -s ~/.mySettings/configs/polybar/config ~/.config/polybar/config
-ln -s ~/.mySettings/configs/picom/picom.conf ~/.config/picom/picom.conf
+ln -s bashrc ~/.bashrc
+ln -s aliases ~/.bash_aliases
+ln -s gtkrc ~/.gtkrc-2.0
+echo
+echo "Applying doom emacs configs"
+cp doom/* ~/.doom.d/
+~/.emacs.d/bin/doom sync
 # ln -s ~/.mySettings/configs/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
 
 echo
-echo "ENABLING SYSTEM CONFIGURATIONS"
-sudo cp ./undervolt.conf /etc/intel-undervolt.conf
-sudo systemctl enable auto-cpufreq intel-undervolt tlp
+echo "COPYING AND APPLYING SYSTEM CONFIGURATIONS"
+sudo cp ./system/intel-undervolt.conf /etc/intel-undervolt.conf
+sudo cp ./system/root-resume.service /etc/systemd/system/
+sudo cp ./system/power_management.service /etc/systemd/system/
+sudo cp ./system/cpupower.rules /etc/udev/rules.d/
+sudo cp ./system/*.profile /etc/cpupower_gui.d/
+sudo cp ./system/xorg.conf /etc/X11/xorg.conf
+sudo cp ./system/pacman.conf /etc/pacman.conf
+# Only copying my custom nbfc config at the time to check if the
+# temps are better with the auto fan curves or if my own are better
+# sound is also an issue here, a fan constantly at 50% to get a 40ºC
+# is useless if I can have a mostly silent fan at 45-52 ºC at 20% cpu
+# and gpu load, which means a lot of apps at the time of writting this.
+# Will remove this and auto apply my config if I'm not satisfied with this
+sudo cp ./nbfc-profiles/gl502vm_v4.json /usr/share/nbfc/configs/
+cp ./system/powerstate.sh ~/scripts/
+chmod +x ~/scripts/powerstate.sh
+sudo systemctl enable intel-undervolt tlp root-resume power_managent
 sudo intel-undervolt apply
-cp ~/.mySettings/configs/doom/* ~/.doom.d/*
-~/.emacs.d/bin/doom sync
+
 
 echo "Done in $SECONDS seconds, please reboot!"

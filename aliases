@@ -45,8 +45,11 @@ alias cr='cat /var/run/reboot-required'
 ## use node v14 lts
 alias nv14='nvm use --lts=fermium'
 ##
+alias ni14='nvm install --lts=fermium'
 ## use node v12 lts
 alias nv12='nvm use --lts=erbium'
+##
+alias ni12='nvm install --lts=erbium'
 ##
 ##########################
 ##
@@ -90,5 +93,11 @@ alias remacs='/home/filipe/.emacs.d/bin/doom sync'
 alias pulsevolctrl='/home/filipe/.mySettings/scripts/pulsevolctrl.sh'
 ##
 alias pulsedevices='/home/filipe/.mySettings/scripts/pulsedevices.sh'
-
-
+##
+alias g='goto'
+##
+alias s='source'
+##
+alias rcs="source ~/.bashrc"
+##
+alias confbak="echo 'idiot fix your backups'"

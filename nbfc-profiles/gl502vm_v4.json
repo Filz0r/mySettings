@@ -1,0 +1,151 @@
+{
+  "NotebookModel": "GL502VM",
+  "Author": "Filz0r",
+  "EcPollInterval": 500,
+  "ReadWriteWords": false,
+  "CriticalTemperature": 85,
+  "FanConfigurations": [
+    {
+      "ReadRegister": 151,
+      "WriteRegister": 151,
+      "MinSpeedValue": 0,
+      "MaxSpeedValue": 8,
+      "IndependentReadMinMaxValues": false,
+      "MinSpeedValueRead": 0,
+      "MaxSpeedValueRead": 0,
+      "ResetRequired": true,
+      "FanSpeedResetValue": 8,
+      "FanDisplayName": "CPU1",
+      "TemperatureThresholds": [
+        {
+          "UpThreshold": 45,
+          "DownThreshold": 0,
+          "FanSpeed": 0.0
+        },
+        {
+          "UpThreshold": 50,
+          "DownThreshold": 40,
+          "FanSpeed": 12.5
+        },
+        {
+          "UpThreshold": 57,
+          "DownThreshold": 52,
+          "FanSpeed": 25.0
+        },
+        {
+          "UpThreshold": 61,
+          "DownThreshold": 56,
+          "FanSpeed": 37.5
+        },
+        {
+          "UpThreshold": 68,
+          "DownThreshold": 60,
+          "FanSpeed": 50.0
+        },
+        {
+          "UpThreshold": 74,
+          "DownThreshold": 67,
+          "FanSpeed": 62.5
+        },
+        {
+          "UpThreshold": 78,
+          "DownThreshold": 68,
+          "FanSpeed": 75.0
+        },
+        {
+          "UpThreshold": 83,
+          "DownThreshold": 80,
+          "FanSpeed": 87.5
+        },
+        {
+          "UpThreshold": 84,
+          "DownThreshold": 80,
+          "FanSpeed": 100.0
+        }
+      ],
+      "FanSpeedPercentageOverrides": []
+    },
+    {
+      "ReadRegister": 152,
+      "WriteRegister": 152,
+      "MinSpeedValue": 0,
+      "MaxSpeedValue": 8,
+      "IndependentReadMinMaxValues": false,
+      "MinSpeedValueRead": 0,
+      "MaxSpeedValueRead": 0,
+      "ResetRequired": true,
+      "FanSpeedResetValue": 8,
+      "FanDisplayName": "CPU2",
+      "TemperatureThresholds": [
+        {
+          "UpThreshold": 45,
+          "DownThreshold": 0,
+          "FanSpeed": 0.0
+        },
+        {
+          "UpThreshold": 50,
+          "DownThreshold": 40,
+          "FanSpeed": 12.5
+        },
+        {
+          "UpThreshold": 57,
+          "DownThreshold": 52,
+          "FanSpeed": 25.0
+        },
+        {
+          "UpThreshold": 61,
+          "DownThreshold": 56,
+          "FanSpeed": 37.5
+        },
+        {
+          "UpThreshold": 68,
+          "DownThreshold": 60,
+          "FanSpeed": 50.0
+        },
+        {
+          "UpThreshold": 74,
+          "DownThreshold": 67,
+          "FanSpeed": 62.5
+        },
+        {
+          "UpThreshold": 78,
+          "DownThreshold": 68,
+          "FanSpeed": 75.0
+        },
+        {
+          "UpThreshold": 83,
+          "DownThreshold": 80,
+          "FanSpeed": 87.5
+        },
+        {
+          "UpThreshold": 84,
+          "DownThreshold": 80,
+          "FanSpeed": 100.0
+        }
+      ],
+      "FanSpeedPercentageOverrides": []
+    }
+  ],
+  "RegisterWriteConfigurations": [
+    {
+      "WriteMode": "Set",
+      "WriteOccasion": "OnWriteFanSpeed",
+      "Register": 160,
+      "Value": 10,
+      "ResetRequired": true,
+      "ResetValue": 10,
+      "ResetWriteMode": "Set",
+      "Description": "CPU1"
+    },
+    {
+      "WriteMode": "Set",
+      "WriteOccasion": "OnWriteFanSpeed",
+      "Register": 166,
+      "Value": 10,
+      "ResetRequired": true,
+      "ResetValue": 10,
+      "ResetWriteMode": "Set",
+      "Description": "CPU2"
+    }
+  ]
+}

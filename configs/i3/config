@@ -25,7 +25,7 @@ exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id dunst
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # when restarted
-exec_always ~/.mySettings/scripts/screen/triple_monitor.sh
+exec_always ~/.mySettings/scripts/screen/auto-screens.sh
 exec_always ~/.mySettings/configs/polybar/launch.sh
 exec_always nitrogen --restore
 exec_always  ~/.mySettings/scripts/spotify-fix.sh
@@ -193,6 +193,7 @@ assign [class="discord"] $ws6
 assign [class="firefox"] $ws2
 assign [class="Nautilus"] $ws4
 assign [class="Steam"] $ws7
+assign [class="Evolution"] $ws9
 # move windows from these classes to correct workspaces
 for_window [class="Spotify"] move to workspace $ws5
 for_window [class="GitHub Desktop"] move to workspace $ws8
@@ -205,3 +206,4 @@ for_window [instance="mongodb compass" class="MongoDB Compass"] floating enable
 for_window [instance="nvidia-settings" class="Nvidia-settings"] floating enable
 for_window [instance="blueman-manager" class="Blueman-manager"] floating enable
 for_window [instance="gnome-disks" class="Gnome-disks"] floating enable
+for_window [instance="com.github.alainm23.planner" class="Com.github.alainm23.planner"] floating enable
