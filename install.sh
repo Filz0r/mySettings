@@ -10,7 +10,7 @@ if [[ ! -d ~/Pictures ]]; then mkdir ~/Pictures; fi
 if [[ ! -d ~/Downloads ]]; then mkdir ~/Downloads; fi
 if [[ ! -d ~/github ]]; then mkdir ~/github; fi
 if [[ ! -d ~/code ]]; then mkdir ~/code; fi
-if [[ ! -d ~/scripts ]]; then mkdir ~/code; fi
+if [[ ! -d ~/scripts ]]; then mkdir ~/scripts; fi
 if [[ ! -d ~/.local ]]; then mkdir ~/.local; fi
 mkdir ~/.local/bin
 # first copy the old pacman config 
