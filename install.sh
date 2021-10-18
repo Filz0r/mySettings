@@ -4,20 +4,20 @@
 START_PWD=$(pwd)
 SECONDS=0
 echo "Creating required folders"
-if [[ ! -d ~/.config ]]; then mkdir ~/.config fi
+if [[ ! -d ~/.config ]]; then mkdir ~/.config; fi
 if [[ ! -d ~/Documents ]]; then mkdir ~/Documents; fi
 if [[ ! -d ~/Pictures ]]; then mkdir ~/Pictures; fi
 if [[ ! -d ~/Downloads ]]; then mkdir ~/Downloads; fi
 if [[ ! -d ~/github ]]; then mkdir ~/github; fi
 if [[ ! -d ~/code ]]; then mkdir ~/code; fi
 if [[ ! -d ~/scripts ]]; then mkdir ~/code; fi
-if [[ ! -d ~/.local ]]; then mkdir ~/.local fi
+if [[ ! -d ~/.local ]]; then mkdir ~/.local; fi
 mkdir ~/.local/bin
 
-
+sudo cp ./system/pacman.conf /etc/pacman.conf
 echo "installing required software"
 sleep 5
-sudo pacman -S --noconfirm emacs kitty nautilus discord firefox gparted \
+sudo pacman -Sy --noconfirm emacs kitty nautilus discord firefox gparted \
     kdeconnect yad gimp nvidia-settings nitrogen transmission-remote-gtk \
     arandr xorg-xrandr bash-completion bluez bpytop cmatrix cockpit cockpit-pcp \
     nmap wireguard-tools vim chromium evolution gnome-keyring capitaine-cursors \
@@ -43,7 +43,7 @@ echo "Installing AUR packages"
 yay -S  bitwarden-bin exodus github-desktop-bin i3exit cpupower-gui \
     js-beautify matcha-gtk-theme moka-icon-theme-git mongodb-compass nvm \
     picom-jonaburg-git polybar polybar-spotify-module spotify tela-icon-theme \
-    timeshift vscodium zoom nbfc-linux heroic-games-launcher-bin proton
+    timeshift vscodium zoom nbfc-linux heroic-games-launcher-bin 
 #installs Doom Emacs
 echo
 echo "Installing Doom Emacs"
