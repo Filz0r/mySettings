@@ -13,7 +13,7 @@ if [[ ! -d ~/code ]]; then mkdir ~/code; fi
 if [[ ! -d ~/scripts ]]; then mkdir ~/code; fi
 if [[ ! -d ~/.local ]]; then mkdir ~/.local; fi
 mkdir ~/.local/bin
-
+# first copy the old pacman config 
 sudo cp ./system/pacman.conf /etc/pacman.conf
 echo "installing required software"
 sleep 5
@@ -40,7 +40,7 @@ sleep 5
 # installs AUR packages
 echo
 echo "Installing AUR packages"
-yay -S  bitwarden-bin exodus github-desktop-bin i3exit cpupower-gui \
+yay -S exodus github-desktop-bin i3exit cpupower-gui \
     js-beautify matcha-gtk-theme moka-icon-theme-git mongodb-compass nvm \
     picom-jonaburg-git polybar polybar-spotify-module spotify tela-icon-theme \
     timeshift vscodium zoom nbfc-linux heroic-games-launcher-bin 
