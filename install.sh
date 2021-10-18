@@ -24,7 +24,7 @@ sudo pacman -Sy --noconfirm emacs kitty nautilus discord firefox gparted \
     lxappearance i3-gaps neofetch syncthing stress shellcheck s-tui \
     ttf-font-awesome ttf-nerd-fonts-symbols intel-undervolt iotop tree \
     w3m vlc wireguard-tools lightdm ripgrep rofi lightdm-gtk-greeter tlp \
-    dmenu qtile telegram-desktop cpupower  gnome-calculator smartontools\
+    dmenu qtile telegram-desktop cpupower  gnome-calculator \
     gnome-disk-utility polkit-gnome filezilla xterm mpv pavucontrol
 # enables
 echo "enabling required services"
