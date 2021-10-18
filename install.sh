@@ -43,7 +43,7 @@ echo "Installing AUR packages"
 yay -S exodus github-desktop-bin i3exit cpupower-gui \
     js-beautify matcha-gtk-theme moka-icon-theme-git mongodb-compass nvm \
     picom-jonaburg-git polybar polybar-spotify-module spotify tela-icon-theme \
-    timeshift vscodium zoom nbfc-linux heroic-games-launcher-bin 
+    timeshift-bin vscodium zoom nbfc-linux heroic-games-launcher-bin 
 #installs Doom Emacs
 echo
 echo "Installing Doom Emacs"
