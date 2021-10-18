@@ -6,7 +6,7 @@ nm-applet &
 blueman-applet &
 numlockx &
 transmission-remote-gtk &
-bitwarden &
+bitwarden-desktop &
 kdeconnect-indicator &
 dunst &
 pasystray &

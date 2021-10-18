@@ -25,7 +25,7 @@ sudo pacman -Sy --noconfirm emacs kitty nautilus discord firefox gparted \
     ttf-font-awesome ttf-nerd-fonts-symbols intel-undervolt iotop tree \
     w3m vlc wireguard-tools lightdm ripgrep rofi lightdm-gtk-greeter tlp \
     dmenu qtile telegram-desktop cpupower  gnome-calculator \
-    gnome-disk-utility polkit-gnome filezilla xterm mpv pavucontrol
+    gnome-disk-utility polkit-gnome filezilla xterm mpv pavucontrol bitwarden
 # enables
 echo "enabling required services"
 sleep 5
