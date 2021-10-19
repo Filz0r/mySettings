@@ -26,7 +26,7 @@ sudo pacman -Sy --noconfirm emacs kitty nautilus discord firefox gparted \
     w3m vlc wireguard-tools lightdm ripgrep rofi lightdm-gtk-greeter tlp \
     dmenu qtile telegram-desktop cpupower  gnome-calculator \
     gnome-disk-utility polkit-gnome filezilla xterm mpv pavucontrol bitwarden
-# enables
+
 echo "enabling required services"
 sleep 5
 sudo systemctl enable cockpit lightdm bluetooth
@@ -73,9 +73,9 @@ cp doom/* ~/.doom.d/
 echo
 echo "COPYING AND APPLYING SYSTEM CONFIGURATIONS"
 sudo cp ./system/intel-undervolt.conf /etc/intel-undervolt.conf
-sudo cp ./system/root-resume.service /etc/systemd/system/
-sudo cp ./system/power_management.service /etc/systemd/system/
-sudo cp ./system/cpupower.rules /etc/udev/rules.d/
+#sudo cp ./system/root-resume.service /etc/systemd/system/
+#sudo cp ./system/power_management.service /etc/systemd/system/
+#sudo cp ./system/cpupower.rules /etc/udev/rules.d/
 sudo cp ./system/*.profile /etc/cpupower_gui.d/
 sudo cp ./system/xorg.conf /etc/X11/xorg.conf
 sudo cp ./system/pacman.conf /etc/pacman.conf
@@ -88,7 +88,8 @@ sudo cp ./system/pacman.conf /etc/pacman.conf
 sudo cp ./nbfc-profiles/gl502vm_v4.json /usr/share/nbfc/configs/
 cp ./system/powerstate.sh ~/scripts/
 chmod +x ~/scripts/powerstate.sh
-sudo systemctl enable intel-undervolt tlp root-resume power_managent
+sudo systemctl enable intel-undervolt
+# tlp root-resume power_managent
 sudo intel-undervolt apply
 
 
