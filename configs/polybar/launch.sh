@@ -25,7 +25,7 @@ esac
 if [ -z "$(pgrep -x polybar)" ]; then
     for m in $(polybar --list-monitors | cut -d":" -f1); do
         MONITOR=$m polybar --reload $BAR &
-        sleep 2
+        sleep 1
     done
 else
     polybar-msg cmd restart

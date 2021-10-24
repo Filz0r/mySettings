@@ -1,7 +1,7 @@
 #!/bin/sh
 # Outputs the pulse volume level formatted to be shown in polybar
 current=$(pactl info | grep "Default Sink: " | cut -d" " -f3)
-device=$(~/.mySettings/scripts/pulseaudio/pulsedevices.sh | grep "$current" -A 2)
+device=$(~/scripts/pulseaudio/pulsedevices.sh | grep "$current" -A 2)
 
 mute=$(echo "$device" | grep "Mute" | awk '{ print $2 }')
 vol=$(echo "$device" | grep "front-left" | awk '{ print $5 }')

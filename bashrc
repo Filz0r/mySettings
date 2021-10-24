@@ -8,14 +8,15 @@
 #PS1='\[\033[01;32m\][\A] \033[01;33m\u \033[01;31m>\033[00m '
 PS1="\[\033[38;5;2m\]\u\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;11m\]@\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;1m\]\W\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;3m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
 source /usr/share/nvm/init-nvm.sh
-source /home/filipe/.bash_aliases
+source /home/filipe/github/mySettings/aliases
 export PATH="$HOME/.local/bin:$PATH"
-source /usr/share/goto/goto.sh
+source $HOME/scripts/goto.sh
 HISTSIZE=100000
 export EDITOR=emacs
 export TERMINAL=/bin/kitty
 export RUST_SRC_PATH=/home/filipe/code/rust
 export TERM=xterm-256color
+#export BROWSER=firefox
 # File extractor
 ex ()
 {

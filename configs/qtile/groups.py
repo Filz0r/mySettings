@@ -6,19 +6,19 @@ def group_init():
         Group("1", persist=True, init=True, position=1),
         Group("2", persist=True, init=True, position=2,
               matches=[Match(wm_class=["firefox"])]),
-        Group("3", persist=False, init=True, position=3, matches=[
+        Group("3", persist=True, init=True, position=3, matches=[
               Match(wm_class=["Emacs", "VSCodium"])]),
-        Group("4", persist=False, init=True, position=4, matches=[
+        Group("4", persist=True, init=True, position=4, matches=[
               Match(wm_class=["Org.gnome.Nautilus"])]),
-        Group("5", persist=False, init=True, exclusive=True, position=5,
+        Group("5", persist=True, init=True, position=5,
               matches=[Match(title=["Spotify"], wm_instance_class=["spotify"], wm_class=["Spotify"])]),
-        Group("6", persist=False, init=True, exclusive=True, position=6,
+        Group("6", persist=True, init=True, position=6,
               matches=[Match(wm_class=["discord"])]),
-        Group("7", persist=False, init=True, exclusive=True, position=7,
+        Group("7", persist=True, init=True, position=7,
               matches=[Match(wm_class=["Steam"])]),
-        Group("8", persist=False, init=True, exclusive=True, position=8, matches=[
+        Group("8", persist=True, init=True, position=8, matches=[
               Match(wm_class=["GitHub Desktop"])]),
-        Group("9", persist=False, init=True, exclusive=True, position=9,
+        Group("9", persist=True, init=True, position=9,
               matches=[Match(wm_class=["Evolution"])]),
     ]
     return GROUPS

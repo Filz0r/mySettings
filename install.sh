@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# NEEDS REWORKING
+echo 'This script is still under development, goodbye.'
+exit 0
+
 # this is an install script that configures my Arch system for me, at least I hope
 START_PWD=$(pwd)
 SECONDS=0
@@ -60,9 +64,9 @@ cp -rp ./scripts/* ~/scripts/
 rm ~/.bash_aliases ~/.bashrc ~/.gtkrc-2.0
 echo
 echo "Symlinking files to home directory"
-ln -s bashrc ~/.bashrc
-ln -s aliases ~/.bash_aliases
-ln -s gtkrc ~/.gtkrc-2.0
+ln -s $START_PWD/bashrc ~/.bashrc
+ln -s $START_PWD/aliases ~/.bash_aliases
+ln -s $START_PWD/gtkrc ~/.gtkrc-2.0
 echo
 echo "Applying doom emacs configs"
 cp doom/* ~/.doom.d/
